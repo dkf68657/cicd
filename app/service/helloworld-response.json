@@ -1,7 +1,3 @@
 {
-  "hello": [
-    {
-      "description": "Welcome ci/cd hello world,this is my second version",
-    }
-  ]
+  "description": "This is cicd demo app, please keep study ",
 }
