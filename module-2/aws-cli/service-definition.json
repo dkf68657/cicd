@@ -1,6 +1,6 @@
 {
-  "serviceName": "MythicalMysfits-Service",
-  "cluster": "MythicalMysfits-Cluster",
+  "serviceName": "cicdservice",
+  "cluster": "cicdcluster",
   "launchType": "FARGATE",
   "deploymentConfiguration": {
     "maximumPercent": 200,
@@ -9,22 +9,22 @@
   "desiredCount": 1,
   "networkConfiguration": {
     "awsvpcConfiguration": {
-      "assignPublicIp": "DISABLED",
+      "assignPublicIp": "ENABLED",
       "securityGroups": [
-        "REPLACE_ME_SECURITY_GROUP_ID"
+        "sg-0792f5c6e99f25990"
       ],
       "subnets": [
-        "REPLACE_ME_PRIVATE_SUBNET_ONE",
-        "REPLACE_ME_PRIVATE_SUBNET_TWO"
+        "subnet-03c99012eda84cb05",
+        "subnet-05b7b3cb5a9d9b041"
       ]
     }
   },
-  "taskDefinition": "mythicalmysfitsservice",
+  "taskDefinition": "cicdservice",
   "loadBalancers": [
     {
-      "containerName": "MythicalMysfits-Service",
+      "containerName": "cicdservice",
       "containerPort": 8080,
-      "targetGroupArn": "REPLACE_ME_NLB_TARGET_GROUP_ARN"
+      "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:082651270708:targetgroup/cicd-TargetGroup/1ab25e020b42df70"
     }
   ]
 }

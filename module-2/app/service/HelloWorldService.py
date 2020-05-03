@@ -17,11 +17,11 @@ def healthCheckResponse():
 # the website.  Because we do not yet have any persistent storage available for
 # our application, the mysfits are simply stored in a static JSON file. Which is
 # read from the the filesystem, and directly used as the service response.
-@app.route("/mysfits")
-def getMysfits():
+@app.route("/helloworld")
+def getHelloWorld():
 
     # read the mysfits JSON from the listed file.
-    response = Response(open("mysfits-response.json").read())
+    response = Response(open("helloworld-response.json").read())
 
     # set the Content-Type header so that the browser is aware that the response
     # is formatted as JSON and our frontend JavaScript code is able to
