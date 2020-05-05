@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd ./app
 
 echo Build started on `date`
 
