@@ -29,11 +29,12 @@ echo Completed pushing Docker image. Deploying Docker image to AWS Fargate on `d
 echo start to deploy aws farget .......
 chmod 777  ecs-deploy
 
-./ecs-deploy -c cicdcluster -n  -r us-east-1 cicdservice -i 82651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest
-if [ $? -ne 0]; then
- echo "failed to deploy"
-else 
-  echo successfully
+./ecs-deploy -c cicdcluster -n cicdservice -d cicdeservice -r us-east-1 -p default -i 82651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest 
+
+if [$? -ne 0 ];then
+echo "failed"
+else
+echo "success"
 fi
 
 echo start to deploy aws farget successfully
