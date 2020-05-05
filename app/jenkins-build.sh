@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo $(whoami)
+echo current user :$(whoami)
 
 echo Build started on `date`
 
@@ -16,7 +16,7 @@ sudo docker tag cicd:latest 082651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:la
 
 echo Logging in to Amazon ECR...
 
-sudo $(aws ecr get-login --no-include-email --region us-east-1)
+#sudo $(aws ecr get-login --no-include-email --region us-east-1)
 
 echo ----Logging in to Amazon ECR successfully------
 
@@ -28,9 +28,9 @@ echo Completed pushing Docker image. Deploying Docker image to AWS Fargate on `d
 
 echo start to deploy aws farget .......
 
-chmod 777  ecs-deploy
+chmod 766  ecs-deploy
 
-./ecs-deploy -c cicdcluster -n cicdservice  -r us-east-1 -p default  -i 82651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest 
+#./ecs-deploy -c cicdcluster -n cicdservice  -r us-east-1 -p default  -i 82651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest 
 
 
 echo start to deploy aws farget successfully
