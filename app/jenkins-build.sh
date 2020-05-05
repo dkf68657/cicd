@@ -22,7 +22,7 @@ echo ----Logging in to Amazon ECR successfully------
 
 echo start push docker image to ecr
 
-sudo docker push 082651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest
+#sudo docker push 082651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest
 
 echo Completed pushing Docker image. Deploying Docker image to AWS Fargate on `date`
 
