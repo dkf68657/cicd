@@ -27,8 +27,14 @@ sudo docker push 082651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest
 echo Completed pushing Docker image. Deploying Docker image to AWS Fargate on `date`
 
 echo start to deploy aws farget .......
+chmod 777  ecs-deploy
 
-ecs-deploy -c cicdcluster -n cicdservice -i 82651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest
+./ecs-deploy -c cicdcluster -n cicdservice -i 82651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest
+if [ $? -ne 0]; then
+ echo "failed to deploy"
+else 
+  echo successfully
+fi
 
 echo start to deploy aws farget successfully
 
