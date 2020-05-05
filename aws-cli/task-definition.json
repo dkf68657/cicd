@@ -11,7 +11,7 @@
   "containerDefinitions": [
     {
       "name": "cicdservice",
-      "image": "082651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest",
+	  "image":brucedong1987/cicd:latest
       "portMappings": [
         {
           "containerPort": 8080,
