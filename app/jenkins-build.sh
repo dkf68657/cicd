@@ -32,9 +32,6 @@ chmod 777  ecs-deploy
 
 ./ecs-deploy -c cicdcluster -n cicdservice  -r us-east-1 -p default  -i 82651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest 
 
-if [ $? ne 0]; then
-  echo "----deploy farget failed----"
-fi
 
 echo start to deploy aws farget successfully
 
