@@ -29,7 +29,7 @@ echo Completed pushing Docker image. Deploying Docker image to AWS Fargate on `d
 echo start to deploy aws farget .......
 chmod 777  ecs-deploy
 
-./ecs-deploy -c cicdcluster -n cicdservice  -r us-east-1 -k AKIARGPTGJY2K25FY25G -s cR7DF5JN9twAbVXuqVnM0AfkV+Xu+pBBePE17R18  -i 82651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest 
+./ecs-deploy -c cicdcluster -n cicdservice  -r us-east-1 -p default  -i 82651270708.dkr.ecr.us-east-1.amazonaws.com/cicd:latest 
 
 
 echo start to deploy aws farget successfully
