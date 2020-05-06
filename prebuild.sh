@@ -106,7 +106,7 @@ echo "----replace placehold in $generated_dir/service-definition.json end---"
 echo "aws ecs describe-services --service $(echo $servicename|sed 's/\"//g') --cluster $(echo $CLUSTER|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g') | jq .services[].status"
 status=`aws ecs describe-services --service $(echo $servicename|sed 's/\"//g') --cluster $(echo $CLUSTER|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g') | jq .services[].status`
 echo "----$status----"
-if [ "$status" == "INACTIVE" ] || [ "$status" == "" ]; then
+if [ "$status" == 'INACTIVE' ] || [ -z $status  ]; then
   echo "create a new service aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json "
   aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json
 else
