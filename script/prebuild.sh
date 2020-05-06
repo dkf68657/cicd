@@ -3,7 +3,8 @@
 function getConfigValue(){
   local key = "$1"
   local result = `cat config.json | jq $key`
-  return $result
+  echo $result
+  return 0
 }
 
 current_dir="$PWD"
@@ -19,7 +20,7 @@ cp -r $template_dir/*   $generated_dir
 echo "replace placehold in $generated_dir/task-definition.json"  
 
 
-task_family=$(getConfigValue .task.family)
+task_family=$(getConfigValue ".task.family")
 echo $task_family
 
 replace="s/%%FAMILY%%/$task_family/g" 
