@@ -72,7 +72,7 @@ SECURITY_GROUP_ID=`cat config.json | jq .service.securitycroups`
 replace="s!%%SECURITY_GROUP_ID%%!$SECURITY_GROUP_ID!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
-SUBNETS=`cat config.json | jq .service.subnets`
+SUBNETS=`cat config.json | jq .service.subnets[]`
 replace="s!%%SUBNETS%%!$SUBNETS!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
@@ -81,7 +81,7 @@ replace="s!%%TASK_NAME%%!$TASK_NAME!g"
 sed -i -e $replace $generated_dir/service-definition.json
 
 
-PORT=`cat config.json | jq .serice.port`
+PORT=`cat config.json | jq .service.containerport`
 replace="s!%%PORT%%!$PORT!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 

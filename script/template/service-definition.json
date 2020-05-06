@@ -16,12 +16,12 @@
       "subnets": %%SUBNETS%%
     }
   },
-  "taskDefinition": "%%TASK_NAME%%",
+  "taskDefinition": %%TASK_NAME%%,
   "loadBalancers": [
     {
-      "containerName": "%%CONTAINER_NAME%%",
+      "containerName": %%CONTAINER_NAME%%,
       "containerPort": %%PORT%%,
-      "targetGroupArn": "%%TARGET_GROUP_ARN%%"
+      "targetGroupArn": %%TARGET_GROUP_ARN%%
     }
   ]
 }
