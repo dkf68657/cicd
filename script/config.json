@@ -17,10 +17,10 @@
     "name":"cicdtask",
 	"family":"cicdtask",
 	"image":"brucedong1987/cicd:latest",
-	"port":8080,
+	"port":"8080",
 	"loggroup":"cicd",
 	"awslogs-stream-prefix":"awslogs-cicd-service",
 	"executionRoleArn": "arn:aws:iam::082651270708:role/MythicalMysfitsCoreStack-EcsServiceRole-11YCDP13WORX",
-    "taskRoleArn": "arn:aws:iam::082651270708:role/MythicalMysfitsCoreStack-ECSTaskRole-1BK6RLPSRDAEF",
+    "taskRoleArn": "arn:aws:iam::082651270708:role/MythicalMysfitsCoreStack-ECSTaskRole-1BK6RLPSRDAEF"
   }
 }
