@@ -1,4 +1,6 @@
 #!/bin/bash
+chmod 776 script/prebuild.sh
+chmod 776 script/build.sh
 
 ./script/prebuild.sh
 ./script/build.sh
