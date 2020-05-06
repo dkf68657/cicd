@@ -100,9 +100,12 @@ sed -i -e $replace $generated_dir/service-definition.json
 
 echo "----replace placehold in $generated_dir/service-definition.json end---"  
 
-#echo "aws ecs register-task-definition --cli-input-json file://$generated_dir/task-definition.json"
-#aws ecs register-task-definition --cli-input-json file://$generated_dir/task-definition.json
-
+aws ecs describe-task-definition --task-definition $(echo $TASK_NAME|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g')
+if [ $? -ne 0 ]; then
+ echo "$TASK_NAME not existing, register a new task definition"
+ echo "aws ecs register-task-definition --cli-input-json file://$generated_dir/task-definition.json"
+ aws ecs register-task-definition --cli-input-json file://$generated_dir/task-definition.json
+fi
 echo "aws ecs describe-services --service $(echo $servicename|sed 's/\"//g') --cluster $(echo $CLUSTER|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g') | jq .services[].status"
 status=`aws ecs describe-services --service $(echo $servicename|sed 's/\"//g') --cluster $(echo $CLUSTER|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g') | jq .services[].status`
 echo "----$status----"
