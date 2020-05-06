@@ -2,7 +2,7 @@
 
 getConfigValue()
 {
-  local result = "$(cat config.json | jq eval .$1)"
+  result = "$(cat config.json | jq eval .$1)"
   echo $result
 }
 
