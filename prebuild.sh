@@ -99,6 +99,7 @@ sed -i -e $replace $generated_dir/service-definition.json
 
 echo "----replace placehold in $generated_dir/service-definition.json end---"  
 
+echo "aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION"
 
 SERVICES=`aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION | jq .failures[]`
 
