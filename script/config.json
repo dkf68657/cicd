@@ -1,0 +1,26 @@
+{
+  "service":{
+  "name": "cicdservice",
+  "cluster": "cicdcluster",  
+  "desiredCount": 1,
+  "securityGroups":"sg-0792f5c6e99f25990",
+  "subnets":[
+        "subnet-03c99012eda84cb05",
+        "subnet-05b7b3cb5a9d9b041"
+       ]
+  
+  "taskDefinition": "cicdtask",
+  "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:082651270708:targetgroup/cicd-TargetGroup/1ab25e020b42df70"
+  }
+  
+  "task":{
+    "name":"cicdtask",
+	"family":"cicdtask",
+	"image":"brucedong1987/cicd:latest"
+	"port":8080,
+	"loggroup":"cicd",
+	"awslogs-stream-prefix":"awslogs-cicd-service",
+	"executionRoleArn": "arn:aws:iam::082651270708:role/MythicalMysfitsCoreStack-EcsServiceRole-11YCDP13WORX",
+    "taskRoleArn": "arn:aws:iam::082651270708:role/MythicalMysfitsCoreStack-ECSTaskRole-1BK6RLPSRDAEF",
+  }
+}
