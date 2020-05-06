@@ -23,7 +23,7 @@
         "options": {
           "awslogs-group": "%%LOG_GROUP%%",
           "awslogs-region": "%%REGION%%",
-          "awslogs-stream-prefix": "%%STREAM-PREFIX%%"
+          "awslogs-stream-prefix": "%%STREAM_PREFIX%%"
         }
       },
       "essential": true

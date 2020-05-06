@@ -47,8 +47,8 @@ replace="s/%%REGION%%/$REGION/g"
 sed -i -e $replace $generated_dir/task-definition.json
 
 
-STREAM-PREFIX=`cat config.json | jq .task.awslogs-stream-prefix`
-replace="s/%%STREAM-PREFIX%%/$STREAM-PREFIX/g" 
+STREAM_PREFIX=`cat config.json | jq .task.streamprefix`
+replace="s/%%STREAM_PREFIX%%/$STREAM_PREFIX/g" 
 sed -i -e $replace $generated_dir/task-definition.json
 
 echo  "---replace placehold in $generated_dir/task-definition.json end----"  
