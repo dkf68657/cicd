@@ -102,8 +102,8 @@ echo "----replace placehold in $generated_dir/service-definition.json end---"
 echo "aws ecs register-task-definition --cli-input-json file://$generated_dir/task-definition.json"
 aws ecs register-task-definition --cli-input-json file://$generated_dir/task-definition.json
 
-echo "aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION"
-SERVICES=`aws ecs describe-services --service $servicename --cluster $CLUSTER --region $(echo $REGION|sed 's/\"//g') | jq .failures[]`
+echo "aws ecs describe-services --service $(echo $servicename|sed 's/\"//g') --cluster $(echo $CLUSTER|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g') | jq .failures[]"
+SERVICES=`aws ecs describe-services --service $(echo $servicename|sed 's/\"//g') --cluster $CLUSTER --region $(echo $REGION|sed 's/\"//g') | jq .failures[]`
 
 if [ $? -ne 0 ]; then
  echo failed to get service info

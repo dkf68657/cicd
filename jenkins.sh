@@ -1,7 +1,7 @@
 #!/bin/bash
 
-CLUSTER=`cat config.json | jq .service.cluster`
-servicename=`cat config.json | jq .service.name`
+CLUSTER=`cat config.json | jq .service.cluster | sed 's/\"//g'`
+servicename=`cat config.json | jq .service.name|sed 's/\"//g'`
 REGION=`cat config.json | jq .task.region |sed 's/\"//g'`
 imageUrl=`cat config.json | jq .task.image|sed 's/\"//g'` 
 
