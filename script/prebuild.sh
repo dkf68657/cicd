@@ -17,20 +17,20 @@ replace="s/%%FAMILY%%/$task_family/g"
 sed -i -e $replace $generated_dir/task-definition.json
 
 ecsServiceRole=`cat config.json | jq .task.executionrolearn`
-replace="s/%%EcsServiceRole%%/$ecsServiceRole/g" 
+replace="s!%%EcsServiceRole%%!$ecsServiceRole!g" 
 sed -i -e $replace $generated_dir/task-definition.json
 
 ecsTaskRole=`cat config.json | jq .task.taskRolearn`
-replace="s/%%ECSTaskRole%%/$ecsTaskRole/g" 
+replace="s!%%ECSTaskRole%%!$ecsTaskRole!g" 
 sed -i -e $replace $generated_dir/task-definition.json
 
 containerName=`cat config.json | jq .task.name`
-replace="s/%%ContainerName%%/$containerName/g" 
+replace="s!%%ContainerName%%!$containerName!g" 
 sed -i -e $replace $generated_dir/task-definition.json
 
 
 IMAGE_URL=`cat config.json | jq .task.image`
-replace="s/%%IMAGE_URL%%/$IMAGE_URL/g" 
+replace="s!%%IMAGE_URL%%!$IMAGE_URL!g" 
 sed -i -e $replace $generated_dir/task-definition.json
 
 
