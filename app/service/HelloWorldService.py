@@ -24,7 +24,7 @@ def getHelloWorld():
     # read the mysfits JSON from the listed file.
 	hostName = socket.gethostbyname(socket.getfqdn(socket.gethostname()))
     #response = Response(open("helloworld-response.json").read())
-     response = Response("container host name:" + hostName)
+    response = Response("container host name:" + hostName)
     # set the Content-Type header so that the browser is aware that the response
     # is formatted as JSON and our frontend JavaScript code is able to
     # appropriately parse the response.
