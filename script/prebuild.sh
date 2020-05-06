@@ -55,7 +55,7 @@ echo  "---replace placehold in $generated_dir/task-definition.json end----"
 
 echo "----replace placehold in $generated_dir/service-definition.json start---"  
 
-servicename=`cat config.json | jq .serice.name`
+servicename=`cat config.json | jq .service.name`
 replace="s!%%SERVICE_NAME%%!$servicename!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
@@ -64,19 +64,19 @@ replace="s!%%CLUSTER%%!$CLUSTER!g"
 sed -i -e $replace $generated_dir/service-definition.json
 
 
-DESIRED_COUNT=`cat config.json | jq .serice.desiredcount`
+DESIRED_COUNT=`cat config.json | jq .service.desiredcount`
 replace="s!%%DESIRED_COUNT%%!$DESIRED_COUNT!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
-SECURITY_GROUP_ID=`cat config.json | jq .serice.desiredcount`
+SECURITY_GROUP_ID=`cat config.json | jq .service.desiredcount`
 replace="s!%%SECURITY_GROUP_ID%%!$securitycroups!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
-SUBNETS=`cat config.json | jq .serice.subnets`
+SUBNETS=`cat config.json | jq .service.subnets`
 replace="s!%%SUBNETS%%!$SUBNETS!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
-TASK_NAME=`cat config.json | jq .serice.taskdefinition`
+TASK_NAME=`cat config.json | jq .service.taskdefinition`
 replace="s!%%TASK_NAME%%!$TASK_NAME!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
@@ -85,7 +85,7 @@ PORT=`cat config.json | jq .serice.port`
 replace="s!%%PORT%%!$PORT!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
-CONTAINER_NAME=`cat config.json | jq .serice.containername`
+CONTAINER_NAME=`cat config.json | jq .service.containername`
 replace="s!%%CONTAINER_NAME%%!$CONTAINER_NAME!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
