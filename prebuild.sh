@@ -109,5 +109,5 @@ if [ "$status" == "INACTIVE" ] || [ "$status" == "" ]; then
   echo "create a new service aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json "
   aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json
 else
-  echo "service $servicename has existed"
+  echo "service $servicename has existed, skip the service creating phrase"
 fi  
