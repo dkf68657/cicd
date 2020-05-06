@@ -103,7 +103,7 @@ echo "aws ecs describe-services --service $servicename --cluster $CLUSTER --regi
 
 SERVICES=`aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION | jq .failures[]`
 
-if [ "$?" -ne "0"]; then
+if [ $? -ne 0]; then
  echo failed to get service info
  exit 1;
 
@@ -111,5 +111,5 @@ if [ "$SERVICES"==""]; then
   echo "service has existed"
 else
   echo "create a new service"
-  aws ecs create-service cli-input-json file://$generated_dir/service-definition.json
+  aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json
 fi  
