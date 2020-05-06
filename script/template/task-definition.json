@@ -1,17 +1,17 @@
 {
-  "family": "%%FAMILY%%",
+  "family": %%FAMILY%%,
   "cpu": "256",
   "memory": "512",
   "networkMode": "awsvpc",
   "requiresCompatibilities": [
     "FARGATE"
   ],
-  "executionRoleArn": "%%EcsServiceRole%%",
-  "taskRoleArn": "%%ECSTaskRole%%",
+  "executionRoleArn": %%EcsServiceRole%%,
+  "taskRoleArn": %%ECSTaskRole%%,
   "containerDefinitions": [
     {
-      "name": "%%ContainerName%%",
-	  "image":"%%IMAGE_URL%%"
+      "name": %%ContainerName%%,
+	  "image":%%IMAGE_URL%%
       "portMappings": [
         {
           "containerPort": %%PORT%%,
@@ -21,9 +21,9 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "%%LOG_GROUP%%",
-          "awslogs-region": "%%REGION%%",
-          "awslogs-stream-prefix": "%%STREAM_PREFIX%%"
+          "awslogs-group": %%LOG_GROUP%%,
+          "awslogs-region": %%REGION%%,
+          "awslogs-stream-prefix": %%STREAM_PREFIX%%
         }
       },
       "essential": true
