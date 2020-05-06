@@ -5,7 +5,7 @@
   "desiredcount": 1,
   "securitycroups":"sg-0792f5c6e99f25990",
   "subnet1":"subnet-03c99012eda84cb05",
-  "subnet2" : "subnet-05b7b3cb5a9d9b041",  
+  "subnet2":"subnet-05b7b3cb5a9d9b041",  
   "taskdefinition": "cicdtask",
   "containername":"cicdcontainer",
   "containerport":8080,
