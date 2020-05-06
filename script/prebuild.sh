@@ -1,4 +1,11 @@
 #!/bin/bash
+
+function getConfigValue(){
+  local key = "$1"
+  local result = `cat config.json | jq $key`
+  return $result
+}
+
 current_dir="$PWD"
 generated_dir="$current_dir/generated"
 template_dir="$current_dir/template"
@@ -13,19 +20,12 @@ echo "replace placehold in $generated_dir/task-definition.json"
 
 
 task_family=$(getConfigValue .task.family)
-echo result is $?
 echo $task_family
 
 replace="s/%%FAMILY%%/$task_family/g" 
 sed -i -e $replace $generated_dir/task-definition.json
 
 
-
-function getConfigValue(){
-  local key = "$1"
-  local result = `cat config.json | jq $key`
-  return $result
-}
 
 
 
