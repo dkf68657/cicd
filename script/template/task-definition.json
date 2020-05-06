@@ -11,7 +11,7 @@
   "containerDefinitions": [
     {
       "name": "%%ContainerName%%",
-	  "image":"%%IMAGE_URL"
+	  "image":"%%IMAGE_URL%%"
       "portMappings": [
         {
           "containerPort": %%PORT%%,

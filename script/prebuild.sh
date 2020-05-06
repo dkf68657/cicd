@@ -29,8 +29,8 @@ replace="s!%%ContainerName%%!$containerName!g"
 sed -i -e $replace $generated_dir/task-definition.json
 
 
-IMAGE_URL=`cat config.json | jq .task.image`
-replace="s!%%IMAGE_URL%%!$IMAGE_URL!g" 
+imageUrl=`cat config.json | jq .task.image`
+replace="s!%%IMAGE_URL%%!$imageUrl!g" 
 sed -i -e $replace $generated_dir/task-definition.json
 
 
