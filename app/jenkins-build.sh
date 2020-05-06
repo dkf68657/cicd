@@ -1,5 +1,14 @@
 #!/bin/bash
 
+cluster=$1
+servicename=$2
+region=$3
+docker_repo=$4
+
+if [ -z cluster -o -z servicename -o -z region -o -z docker_repo ]; then
+  echo "missing required parameters"
+  exit 1
+fi
 echo current user :$(whoami)
 
 echo Build started on `date`
@@ -22,14 +31,14 @@ echo ----Logging in to docker hub successfully------
 
 echo -------start push docker image to docker hub------
 
-sudo docker push brucedong1987/cicd:latest
+sudo docker push $docker_repo
 
 echo Completed pushing Docker image ----. 
 echo Deploying Docker image to AWS Fargate on `date`
 
 chmod 766  ecs-deploy
 
-./ecs-deploy -c cicdcluster -n cicdservice  -r us-east-1 -p default  -i brucedong1987/cicd:latest
+#./ecs-deploy -c $cluster -n $servicename  -r $region -p default  -i $docker_repo
 
 
 echo start to deploy aws farget successfully
