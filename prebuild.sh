@@ -108,11 +108,11 @@ SERVICES=`aws ecs describe-services --service $servicename --cluster $CLUSTER --
 if [ $? -ne 0]; then
  echo failed to get service info
  exit 1;
-echo ------$?---------
+fi
 
 if [ "$SERVICES"==""]; then
   echo "service has existed"
 else
-  echo "create a new service"
+  echo "create a new service aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json "
   aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json
 fi  

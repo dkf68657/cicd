@@ -1,4 +1,10 @@
 #!/bin/bash
+
+CLUSTER=`cat config.json | jq .service.cluster`
+servicename=`cat config.json | jq .service.name`
+REGION=`cat config.json | jq .task.region`
+imageUrl=`cat config.json | jq .task.image`
+
 chmod 776 prebuild.sh
 chmod 776 build.sh
 ./prebuild.sh
