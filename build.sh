@@ -1,5 +1,4 @@
 #!/bin/bash
-
 currentdir = $(cd $(dirname $0); pwd)
 cluster=$1
 servicename=$2
@@ -10,13 +9,12 @@ if [ -z cluster -o -z servicename -o -z region -o -z docker_repo ]; then
   echo "missing required parameters"
   exit 1
 fi
-echo current user :$(whoami)
 
 echo Build started on `date`
 
 echo Building the Docker image...
 
-sudo docker build ../app -t cicd:latest
+sudo docker build app/Dockerfile -t cicd:latest
 
 echo Building the Docker image successfully
 
