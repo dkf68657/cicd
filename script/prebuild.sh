@@ -2,8 +2,7 @@
 
  getConfigValue()
  {
-  local key = "$1"
-  local result = `cat config.json | jq $key`
+  local result = `cat config.json | jq $1`
   echo $result
   return 0
  }
