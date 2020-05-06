@@ -3,6 +3,7 @@ current_dir="$(cd $(dirname $0); pwd)"
 generated_dir="$current_dir/generated"
 template_dir="$current_dir/template"
 echo "rm -rf $generated_dir" 
+echo `whoami`
 rm -f $generated_dir/*
 #echo "mkdir -p $generated_dir"  
 #mkdir -p $generated_dir
@@ -103,10 +104,10 @@ echo "----replace placehold in $generated_dir/service-definition.json end---"
 #aws ecs register-task-definition --cli-input-json file://$generated_dir/task-definition.json
 
 echo "aws ecs describe-services --service $(echo $servicename|sed 's/\"//g') --cluster $(echo $CLUSTER|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g') | jq .failures[]"
-SERVICES=`aws ecs describe-services --service $(echo $servicename|sed 's/\"//g') --cluster $(echo $CLUSTER|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g') | jq .failures[]`
-
-if [ "$SERVICES"=="" ]; then
-  echo "service has existed"
+isServiceExisted=`aws ecs describe-services --service $(echo $servicename|sed 's/\"//g') --cluster $(echo $CLUSTER|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g') | jq .failures[]`
+echo "--------$isServiceExisted-------"
+if [ "$isServiceExisted"=="" ]; then
+  echo "service $servicename has existed"
 else
   echo "create a new service aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json "
   aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json
