@@ -99,9 +99,12 @@ sed -i -e $replace $generated_dir/service-definition.json
 
 echo "----replace placehold in $generated_dir/service-definition.json end---"  
 
-echo "aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION"
+echo "aws ecs register-task-definition --cli-input-json file://$generated_dir/task-definition.json"
+aws ecs register-task-definition --cli-input-json file://$generated_dir/task-definition.json
 
+echo "aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION"
 SERVICES=`aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION | jq .failures[]`
+
 
 if [ $? -ne 0]; then
  echo failed to get service info
