@@ -99,7 +99,7 @@ replace="s!%%TARGET_GROUP_ARN%%!$TARGET_GROUP_ARN!g"
 sed -i -e $replace $generated_dir/service-definition.json
 
 echo "----replace placehold in $generated_dir/service-definition.json end---"  
-
+echo "aws ecs describe-task-definition --task-definition $(echo $TASK_NAME|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g')"
 aws ecs describe-task-definition --task-definition $(echo $TASK_NAME|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g')
 if [ $? -ne 0 ]; then
  echo "$TASK_NAME not existing, register a new task definition"
