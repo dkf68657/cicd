@@ -1,11 +1,12 @@
 #!/bin/bash
 
- getConfigValue(){
+ getConfigValue()
+ {
   local key = "$1"
   local result = `cat config.json | jq $key`
   echo $result
   return 0
-}
+ }
 
 current_dir="$PWD"
 generated_dir="$current_dir/generated"
