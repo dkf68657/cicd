@@ -106,7 +106,7 @@ echo "----replace placehold in $generated_dir/service-definition.json end---"
 echo "aws ecs describe-services --service $(echo $servicename|sed 's/\"//g') --cluster $(echo $CLUSTER|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g') | jq .failures[]"
 isMissing=`aws ecs describe-services --service $(echo $servicename|sed 's/\"//g') --cluster $(echo $CLUSTER|sed 's/\"//g') --region $(echo $REGION|sed 's/\"//g') | jq .failures[].reason`
 echo "--------$isServiceExisted-------"
-if [ -z $isServiceExisted]; then
+if [ -z $isServiceExisted ]; then
   echo "service $servicename has existed"
 else
   echo "create a new service aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json "
