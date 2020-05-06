@@ -24,7 +24,7 @@ ecsTaskRole=`cat config.json | jq .task.taskRolearn`
 replace="s!%%ECSTaskRole%%!$ecsTaskRole!g" 
 sed -i -e $replace $generated_dir/task-definition.json
 
-containerName=`cat config.json | jq .task.name`
+containerName=`cat config.json | jq .task.containername`
 replace="s!%%ContainerName%%!$containerName!g" 
 sed -i -e $replace $generated_dir/task-definition.json
 
