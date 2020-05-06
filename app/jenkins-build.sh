@@ -4,7 +4,6 @@ cluster=$1
 servicename=$2
 region=$3
 docker_repo=$4
-
 if [ -z cluster -o -z servicename -o -z region -o -z docker_repo ]; then
   echo "missing required parameters"
   exit 1
