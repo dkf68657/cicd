@@ -16,11 +16,11 @@ task_family=`cat config.json | jq .task.family`
 replace="s/%%FAMILY%%/$task_family/g" 
 sed -i -e $replace $generated_dir/task-definition.json
 
-ecsServiceRole=`cat config.json | jq .task.executionRoleArn`
+ecsServiceRole=`cat config.json | jq .task.executionrolearn`
 replace="s/%%EcsServiceRole%%/$ecsServiceRole/g" 
 sed -i -e $replace $generated_dir/task-definition.json
 
-ecsTaskRole=`cat config.json | jq .task.taskRoleArn`
+ecsTaskRole=`cat config.json | jq .task.taskRolearn`
 replace="s/%%ECSTaskRole%%/$ecsTaskRole/g" 
 sed -i -e $replace $generated_dir/task-definition.json
 

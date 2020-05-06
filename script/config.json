@@ -21,7 +21,7 @@
 	"loggroup":"cicd",
 	"region":"us-east-1",
 	"streamprefix":"awslogs-cicd-service",
-	"executionRoleArn": "arn:aws:iam::082651270708:role/MythicalMysfitsCoreStack-EcsServiceRole-11YCDP13WORX",
-    "taskRoleArn": "arn:aws:iam::082651270708:role/MythicalMysfitsCoreStack-ECSTaskRole-1BK6RLPSRDAEF"
+	"executionrolearn": "arn:aws:iam::082651270708:role/MythicalMysfitsCoreStack-EcsServiceRole-11YCDP13WORX",
+    "taskRolearn": "arn:aws:iam::082651270708:role/MythicalMysfitsCoreStack-ECSTaskRole-1BK6RLPSRDAEF"
   }
 }
