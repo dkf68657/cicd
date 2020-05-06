@@ -1,17 +1,17 @@
 {
-  "serviceName": "%%SERVICE_NAME%%",
-  "cluster": "%%CLUSTER%%",
+  "serviceName": %%SERVICE_NAME%%,
+  "cluster": %%CLUSTER%%,
   "launchType": "FARGATE",
   "deploymentConfiguration": {
     "maximumPercent": 200,
     "minimumHealthyPercent": 0
   },
-  "desiredCount": %%%DESIRED_COUNT%,
+  "desiredCount": %%DESIRED_COUNT%%,
   "networkConfiguration": {
     "awsvpcConfiguration": {
       "assignPublicIp": "ENABLED",
       "securityGroups": [
-        "%%SECURITY_GROUP_ID%%"
+        %%SECURITY_GROUP_ID%%
       ],
       "subnets": %%SUBNETS%%
     }
