@@ -13,7 +13,10 @@
       "securityGroups": [
         %%SECURITY_GROUP_ID%%
       ],
-      "subnets": %%SUBNETS%%
+      "subnets": [
+	    %%subnet1%%,
+		%%subnet2%%
+	  ]
     }
   },
   "taskDefinition": %%TASK_NAME%%,
