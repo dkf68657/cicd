@@ -2,8 +2,8 @@
 
 CLUSTER=`cat config.json | jq .service.cluster`
 servicename=`cat config.json | jq .service.name`
-REGION=`cat config.json | jq .task.region`
-imageUrl=`cat config.json | jq .task.image| sed 's/\"//g'` 
+REGION=`cat config.json | jq .task.region |sed 's/\"//g'`
+imageUrl=`cat config.json | jq .task.image|sed 's/\"//g'` 
 
 chmod 776 prebuild.sh
 chmod 776 build.sh

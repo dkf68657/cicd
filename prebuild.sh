@@ -103,7 +103,7 @@ echo "aws ecs register-task-definition --cli-input-json file://$generated_dir/ta
 aws ecs register-task-definition --cli-input-json file://$generated_dir/task-definition.json
 
 echo "aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION"
-SERVICES=`aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION | jq .failures[]`
+SERVICES=`aws ecs describe-services --service $servicename --cluster $CLUSTER --region $(echo $REGION|sed 's/\"//g') | jq .failures[]`
 
 if [ $? -ne 0 ]; then
  echo failed to get service info
