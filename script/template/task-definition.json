@@ -11,10 +11,10 @@
   "containerDefinitions": [
     {
       "name": "%%ContainerName%%",
-	  "image":brucedong1987/cicd:latest
+	  "image":"%%IMAGE_URL"
       "portMappings": [
         {
-          "containerPort": %%port%%,
+          "containerPort": %%PORT%%,
           "protocol": "http"
         }
       ],
