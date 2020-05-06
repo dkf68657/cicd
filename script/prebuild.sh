@@ -2,8 +2,8 @@
 
 getConfigValue()
 {
-  result = "$(cat config.json | jq eval .$1)"
-  echo $result
+  rt = "$(cat config.json | jq .$1)"
+  echo $rt
 }
 
 current_dir="$PWD"
