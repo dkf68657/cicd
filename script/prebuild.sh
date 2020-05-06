@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function getConfigValue(){
+ getConfigValue(){
   local key = "$1"
   local result = `cat config.json | jq $key`
   echo $result
