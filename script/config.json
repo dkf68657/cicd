@@ -10,13 +10,13 @@
        ],
   
   "taskdefinition": "cicdtask",
-  "containername":"cicdtask",
+  "containername":"cicdcontainer",
   "port":8080,
   "targetgrouparn": "arn:aws:elasticloadbalancing:us-east-1:082651270708:targetgroup/cicd-TargetGroup/1ab25e020b42df70"
   },
   
   "task":{
-    "name":"cicdtask",
+    "name":"cicdcontainer",
 	"family":"cicdtask",
 	"image":"brucedong1987/cicd:latest",
 	"port":8080,

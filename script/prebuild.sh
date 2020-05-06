@@ -59,7 +59,7 @@ servicename=`cat config.json | jq .service.name`
 replace="s!%%SERVICE_NAME%%!$servicename!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
-CLUSTER=`cat config.json | jq .serice.cluster`
+CLUSTER=`cat config.json | jq .service.cluster`
 replace="s!%%CLUSTER%%!$CLUSTER!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
@@ -68,8 +68,8 @@ DESIRED_COUNT=`cat config.json | jq .service.desiredcount`
 replace="s!%%DESIRED_COUNT%%!$DESIRED_COUNT!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
-SECURITY_GROUP_ID=`cat config.json | jq .service.desiredcount`
-replace="s!%%SECURITY_GROUP_ID%%!$securitycroups!g" 
+SECURITY_GROUP_ID=`cat config.json | jq .service.securitycroups`
+replace="s!%%SECURITY_GROUP_ID%%!$SECURITY_GROUP_ID!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
 SUBNETS=`cat config.json | jq .service.subnets`
@@ -90,7 +90,7 @@ replace="s!%%CONTAINER_NAME%%!$CONTAINER_NAME!g"
 sed -i -e $replace $generated_dir/service-definition.json
 
 
-TARGET_GROUP_ARN=`cat config.json | jq .serice.targetgrouparn`
+TARGET_GROUP_ARN=`cat config.json | jq .service.targetgrouparn`
 replace="s!%%TARGET_GROUP_ARN%%!$TARGET_GROUP_ARN!g" 
 sed -i -e $replace $generated_dir/service-definition.json
 
