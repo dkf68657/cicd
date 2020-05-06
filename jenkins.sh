@@ -13,6 +13,11 @@ echo Deploying Docker image to AWS Fargate on `date`
 echo "ecs-deploy -c $CLUSTER -n $servicename  -r $REGION -p default  -i $imageUrl"
 chmod 766 ecs-deploy
 ./ecs-deploy -c $CLUSTER -n $servicename  -r $REGION -p default  -i $imageUrl
+
+if [ $? ne 0 ]; then
+ echo deploy aws farget failed
+ exit 1
+fi
 echo start to deploy aws farget successfully
 
 
