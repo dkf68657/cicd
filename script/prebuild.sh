@@ -1,6 +1,5 @@
 #!/bin/bash
-
-current_dir="$PWD"
+current_dir="$(cd $(dirname $0); pwd)"
 generated_dir="$current_dir/generated"
 template_dir="$current_dir/template"
 echo "rm -rf $generated_dir" 

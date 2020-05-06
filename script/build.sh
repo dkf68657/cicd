@@ -1,5 +1,6 @@
 #!/bin/bash
 
+currentdir = $(cd $(dirname $0); pwd)
 cluster=$1
 servicename=$2
 region=$3

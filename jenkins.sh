@@ -1,9 +1,8 @@
 #!/bin/bash
 chmod 776 script/prebuild.sh
 chmod 776 script/build.sh
-
 ./script/prebuild.sh
-./script/build.sh
+./script/build.sh $CLUSTER $servicename $REGION $imageUrl
 
 echo Deploying Docker image to AWS Fargate on `date`
 chmod 766  script/ecs-deploy
