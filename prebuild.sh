@@ -102,6 +102,10 @@ echo "----replace placehold in $generated_dir/service-definition.json end---"
 
 SERVICES=`aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION | jq .failures[]`
 
+if [ "$?" -ne "0"]; then
+ echo failed to get service info
+ exit 1;
+
 if [ "$SERVICES"==""]; then
   echo "service has existed"
 else

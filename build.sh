@@ -1,5 +1,5 @@
 #!/bin/bash
-currentdir = $(cd $(dirname $0); pwd)
+current_dir="$(cd $(dirname $0); pwd)"
 cluster=$1
 servicename=$2
 region=$3
@@ -14,7 +14,7 @@ echo Build started on `date`
 
 echo Building the Docker image...
 
-sudo docker build app/Dockerfile -t cicd:latest
+sudo docker build app/ -t cicd:latest
 
 echo Building the Docker image successfully
 
