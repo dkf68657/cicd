@@ -3,9 +3,9 @@ current_dir="$(cd $(dirname $0); pwd)"
 generated_dir="$current_dir/generated"
 template_dir="$current_dir/template"
 echo "rm -rf $generated_dir" 
-rm -rf $generated_dir
-echo "mkdir -p $generated_dir"  
-mkdir -p $generated_dir
+rm -f $generated_dir/*
+#echo "mkdir -p $generated_dir"  
+#mkdir -p $generated_dir
 
 cp -r $template_dir/*   $generated_dir
 
@@ -105,10 +105,10 @@ aws ecs register-task-definition --cli-input-json file://$generated_dir/task-def
 echo "aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION"
 SERVICES=`aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION | jq .failures[]`
 
-
 if [ $? -ne 0]; then
  echo failed to get service info
  exit 1;
+echo ------$?---------
 
 if [ "$SERVICES"==""]; then
   echo "service has existed"
