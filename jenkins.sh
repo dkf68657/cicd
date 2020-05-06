@@ -14,7 +14,7 @@ echo "ecs-deploy -c $CLUSTER -n $servicename  -r $REGION -p default  -i $imageUr
 chmod 766 ecs-deploy
 ./ecs-deploy -c $CLUSTER -n $servicename  -r $REGION -p default  -i $imageUrl
 
-if [ $? ne 0 ]; then
+if [ $? -ne 0 ]; then
  echo deploy aws farget failed
  exit 1
 fi
