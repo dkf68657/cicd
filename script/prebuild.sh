@@ -101,3 +101,11 @@ sed -i -e $replace $generated_dir/service-definition.json
 echo "----replace placehold in $generated_dir/service-definition.json end---"  
 
 
+SERVICES=`aws ecs describe-services --service $servicename --cluster $CLUSTER --region $REGION | jq .failures[]`
+
+if [ "$SERVICES"==""]; then
+  echo "service has existed"
+else
+  echo "create a new service"
+  aws ecs create-service cli-input-json file://$generated_dir/service-definition.json
+fi  
