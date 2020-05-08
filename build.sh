@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 echo `pwd`
 echo mvn clean package
 mvn clean package -Dmaven.test.skip=true
