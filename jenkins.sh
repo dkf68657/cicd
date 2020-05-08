@@ -11,9 +11,9 @@ chmod 776 build.sh
 ./prebuild.sh
 ./build.sh $CLUSTER $servicename $REGION $imageUrl
 echo Deploying Docker image to AWS Fargate on `date`
-echo "ecs-deploy -c $CLUSTER -n $servicename  -r $REGION -p default  -i $imageUrl"
+echo "ecs-deploy -c $CLUSTER -n $servicename  -r $REGION -p default  -i $imageUrl -D $DESIRED_COUNT"
 chmod 766 ecs-deploy
-./ecs-deploy -c $CLUSTER -n $servicename  -r $REGION -p default  -i $imageUrl -D DESIRED_COUNT
+./ecs-deploy -c $CLUSTER -n $servicename  -r $REGION -p default  -i $imageUrl -D $DESIRED_COUNT
 
 if [ $? -ne 0 ]; then
  echo deploy aws farget failed
