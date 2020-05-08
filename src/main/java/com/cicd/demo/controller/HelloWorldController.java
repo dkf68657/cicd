@@ -1,4 +1,4 @@
-package com.cici.demo.controller;
+package com.cicd.demo.controller;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
