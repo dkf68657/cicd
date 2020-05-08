@@ -5,7 +5,7 @@ generated_dir="$current_dir/generated"
 template_dir="$current_dir/template"
 
 if [ ! -d $generated_dir ]; then
-  mkdir -r $generated_dir
+  mkdir -p $generated_dir
 fi
 
 echo "rm -rf $generated_dir" 
