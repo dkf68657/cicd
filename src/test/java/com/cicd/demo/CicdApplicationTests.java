@@ -21,7 +21,9 @@ class CicdApplicationTests {
 		 int count = 0;
 		 boolean success =true;
 		while(true) {
-			if(count < 10)
+			if(count >= 10) {
+				return;
+			}
 			try {
 				ResponseEntity<String> response = restTemplate.getForEntity(new URI(lb +"helloworld"), String.class);
 				assertTrue(response.getBody().startsWith("welcome to hello world for springboot"));
