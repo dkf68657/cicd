@@ -6,26 +6,18 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.client.RestTemplate;
 
-import com.cicd.demo.CicdApplication;
-
-
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = CicdApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 
 class CicdApplicationTests {
     private String lb="http://cicd-nlb-5fdfd526214ac47c.elb.us-east-1.amazonaws.com/";
 	@Autowired
-    private TestRestTemplate restTemplate;
+    private RestTemplate restTemplate = new RestTemplate();
 	@Test
 	void contextLoads() throws Exception, URISyntaxException {
-		ResponseEntity<String> response =restTemplate.getForEntity(new URI(lb +"helloworld"), String.class);
+		ResponseEntity<String> response = restTemplate.getForEntity(new URI(lb +"helloworld"), String.class);
 		assertTrue(response.getBody().startsWith("welcome to hello world for springboot"));
 	}
 
