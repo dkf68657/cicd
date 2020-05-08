@@ -2,7 +2,7 @@
 
 source /etc/profile
 echo mvn clean package -Dmaven.test.skip=true 
-mvn clean package
+mvn clean package -Dmaven.test.skip=true 
 rm -f app/*.jar
 cp target/cicd-0.0.1-SNAPSHOT.jar app/app.jar
 current_dir="$(cd $(dirname $0); pwd)"
