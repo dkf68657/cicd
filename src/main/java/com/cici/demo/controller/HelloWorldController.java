@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldController {
 
 	@GetMapping("/helloworld")
-	public static String helloWorld() {
+	public String helloWorld() {
 		String ip = null;
 		try {
 			ip = InetAddress.getLocalHost().getHostAddress();
@@ -20,8 +20,9 @@ public class HelloWorldController {
 		return "welcome to hello world for springboot, the ip for the machine is " + ip;
 	}
 	
-	
-	public static void main(String[] args) {
-		System.out.println(helloWorld());
+	@GetMapping("/cicd")
+	public String cicd() {
+		return "this is cicd ";
 	}
+	
 }
