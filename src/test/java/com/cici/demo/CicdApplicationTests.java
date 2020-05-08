@@ -23,9 +23,8 @@ class CicdApplicationTests {
     private TestRestTemplate restTemplate;
 	@Test
 	void contextLoads() throws Exception, URISyntaxException {
-		
 		ResponseEntity<String> response =restTemplate.getForEntity(new URI(lb +"helloworld"), String.class);
-		assertTrue("hello".equals(response.getBody()));
+		assertTrue(response.getBody().startsWith("welcome to hello world for springboot"));
 	}
 
 }
