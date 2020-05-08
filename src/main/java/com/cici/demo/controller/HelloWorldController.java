@@ -17,7 +17,7 @@ public class HelloWorldController {
 		} catch (UnknownHostException e) {
 			
 		}
-		return "welcome to hello world for springboot, the ip for the machine is" + ip;
+		return "welcome to hello world for springboot, the ip for the machine is " + ip;
 	}
 	
 	
