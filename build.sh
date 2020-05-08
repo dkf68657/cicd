@@ -1,11 +1,10 @@
 #!/bin/bash
-set -e
-echo current user is `whoami`
-echo `pwd`
-echo mvn clean package
-mvn clean package -Dmaven.test.skip=true
-rm -f ./app/*.jar
-cp ./target/cicd-0.0.1-SNAPSHOT.jar ./app/app.jar
+
+source /etc/profile
+echo mvn clean package -Dmaven.test.skip=true 
+mvn clean package
+rm -f app/*.jar
+cp target/cicd-0.0.1-SNAPSHOT.jar app/app.jar
 current_dir="$(cd $(dirname $0); pwd)"
 cluster=$1
 servicename=$2
@@ -22,11 +21,6 @@ echo Build started on `date`
 echo Building the Docker image...
 
 sudo docker build app/ -t cicd:latest
-
-if [ $? -ne 0 ]; then
-   echo docker build failed
-   exit 1;
-fi
 
 echo Building the Docker image successfully
 
