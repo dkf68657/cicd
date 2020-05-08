@@ -1,4 +1,7 @@
 #!/bin/bash
+
+echo mvn clean package
+mvn clean package
 current_dir="$(cd $(dirname $0); pwd)"
 cluster=$1
 servicename=$2

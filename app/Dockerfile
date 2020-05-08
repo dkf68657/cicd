@@ -1,13 +1,6 @@
-FROM python:3
-RUN echo Updating existing packages, installing and upgrading python and pip.
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential
-RUN pip install --upgrade pip
-RUN echo Copying the Mythical Mysfits Flask service into a service directory.
-COPY ./service /cicd
+FROM java:8
+MAINTAINER brucedong
 WORKDIR /cicd
-RUN echo Installing Python packages listed in requirements.txt
-RUN pip install -r ./requirements.txt
-RUN echo Starting python and starting the Flask service...
-ENTRYPOINT ["python"]
-CMD ["HelloWorldService.py"]
+ADD ../target/cicd-0.0.1-SNAPSHOT.jar /cicd/app.jar 
+RUN bash -c "touch /cicd/app.jar"
+ENTRYPOINT ["java","-jar","/cicd/app.jar"]

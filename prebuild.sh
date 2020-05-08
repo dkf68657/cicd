@@ -1,4 +1,5 @@
 #!/bin/bash
+
 current_dir="$(cd $(dirname $0); pwd)"
 generated_dir="$current_dir/generated"
 template_dir="$current_dir/template"
