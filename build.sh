@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+echo current user is `whoami`
 echo `pwd`
 echo mvn clean package
 mvn clean package -Dmaven.test.skip=true
