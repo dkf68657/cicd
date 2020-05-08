@@ -119,6 +119,5 @@ if [ "$status" == '"INACTIVE"' ] || [ -z $status  ]; then
   echo "create a new service aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json "
   aws ecs create-service --cli-input-json file://$generated_dir/service-definition.json
 else
-  echo "service $servicename has existed, update service "
-  aws ecs update-service --cluster $(echo $CLUSTER|sed 's/\"//g')  --region $(echo $REGION|sed 's/\"//g') --service $(echo $servicename|sed 's/\"//g')  --desired-count $DESIRED_COUNT
+  echo "service $servicename has existed "
 fi  
