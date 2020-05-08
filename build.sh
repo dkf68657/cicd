@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo `PWD`
+echo `pwd`
 echo mvn clean package
 mvn clean package -Dmaven.test.skip=true
 rm -f ./app/*.jar
