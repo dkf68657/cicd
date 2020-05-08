@@ -22,7 +22,7 @@ public class HelloWorldController {
 	
 	@GetMapping("/cicd")
 	public String cicd() {
-		return "this is cicd ";
+		return "this is cicd demo ";
 	}
 	
 }
