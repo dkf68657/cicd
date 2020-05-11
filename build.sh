@@ -11,6 +11,7 @@ servicename=$2
 region=$3
 docker_repo=$4
 
+
 if [ -z cluster -o -z servicename -o -z region -o -z docker_repo ]; then
   echo "missing required parameters"
   exit 1
@@ -24,9 +25,9 @@ sudo docker build app/ -t cicd:latest
 
 echo Building the Docker image successfully
 
-echo start tag docker image cicd:latest
+echo start tag docker image ${imageUrl##*/}
 
-sudo docker tag cicd:latest $docker_repo
+sudo docker tag ${imageUrl##*/} $docker_repo
 
 echo Logging in to docker hub
 
