@@ -21,13 +21,13 @@ echo Build started on `date`
 
 echo Building the Docker image...
 
-sudo docker build app/ -t cicd:latest
+sudo docker build app/ -t ${docker_repo##*/}
 
 echo Building the Docker image successfully
 
-echo "start tag docker image ${$docker_repo##*/}"
+echo "start tag docker image ${docker_repo##*/}"
 
-sudo docker tag ${$docker_repo##*/} $docker_repo
+sudo docker tag ${docker_repo##*/} $docker_repo
 
 echo Logging in to docker hub
 
