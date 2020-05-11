@@ -25,9 +25,9 @@ sudo docker build app/ -t cicd:latest
 
 echo Building the Docker image successfully
 
-echo start tag docker image ${imageUrl##*/}
+echo "start tag docker image ${$docker_repo##*/}"
 
-sudo docker tag ${imageUrl##*/} $docker_repo
+sudo docker tag ${$docker_repo##*/} $docker_repo
 
 echo Logging in to docker hub
 
