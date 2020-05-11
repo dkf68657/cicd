@@ -18,7 +18,7 @@ public class HelloWorldController {
 		} catch (UnknownHostException e) {
 			System.out.println("error occur")
 		}
-		return "welcome to hello world for springboot, the ip for the machine is " + ip;
+		return "the private ip for the ec2 is " + ip;
 	}
 	
 	@GetMapping("/cicd")
