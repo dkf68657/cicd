@@ -14,8 +14,9 @@ public class HelloWorldController {
 		String ip = null;
 		try {
 			ip = InetAddress.getLocalHost().getHostAddress();
+			System.out.println("get ip [" + ip + "]");
 		} catch (UnknownHostException e) {
-			
+			System.out.println("error occur")
 		}
 		return "welcome to hello world for springboot, the ip for the machine is " + ip;
 	}
