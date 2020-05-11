@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 current_dir="$(cd $(dirname $0); pwd)"
 source /etc/profile
 echo mvn clean package -Dmaven.test.skip=true 
