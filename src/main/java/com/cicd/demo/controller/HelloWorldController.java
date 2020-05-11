@@ -16,7 +16,7 @@ public class HelloWorldController {
 			ip = InetAddress.getLocalHost().getHostAddress();
 			System.out.println("get ip [" + ip + "]");
 		} catch (UnknownHostException e) {
-			System.out.println("error occur")
+			System.out.println("error occur");
 		}
 		return "the private ip for the ec2 is " + ip;
 	}
