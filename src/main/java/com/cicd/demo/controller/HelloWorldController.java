@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloWorldController {
-
 	@GetMapping("/helloworld")
 	public String helloWorld() {
 		String ip = null;
@@ -18,7 +17,7 @@ public class HelloWorldController {
 		} catch (UnknownHostException e) {
 			System.out.println("error occur");
 		}
-		return "the private ip for the ec2 is " + ip;
+		return "currentVersion:" + 005 + ", ip =["+ ip+"]";
 	}
 	
 	@GetMapping("/cicd")
