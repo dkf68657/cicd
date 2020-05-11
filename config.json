@@ -15,7 +15,7 @@
   "task":{
     "containername":"cicdcontainer",
 	"family":"cicdtask-2",
-	"image":"brucedong1987/cicd:002",
+	"image":"brucedong1987/cicd:003",
 	"port":8080,
 	"loggroup":"cicd",
 	"region":"us-east-1",
