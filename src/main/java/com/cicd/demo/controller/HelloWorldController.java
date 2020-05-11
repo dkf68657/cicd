@@ -13,11 +13,11 @@ public class HelloWorldController {
 		String ip = null;
 		try {
 			ip = InetAddress.getLocalHost().getHostAddress();
-			System.out.println("get ip [" + ip + "]");
+			//System.out.println("get ip [" + ip + "]");
 		} catch (UnknownHostException e) {
 			System.out.println("error occur");
 		}
-		return "currentVersion:" + 005 + ", ip =["+ ip+"]";
+		return "currentVersion:" + 006 + ", ip =[ " + ip + " ] ";
 	}
 	
 	@GetMapping("/cicd")
