@@ -25,7 +25,7 @@ class CicdApplicationTests {
 			}
 			try {
 				ResponseEntity<String> response = restTemplate.getForEntity(new URI(lb + "helloworld"), String.class);
-				assertTrue(response.getBody().startsWith("welcome to hello world for springboot"));
+				assertTrue(response.getBody().startsWith("the private ip for the ec2 is"));
 				success = true;
 			} catch (Exception e) {
 				count++;
